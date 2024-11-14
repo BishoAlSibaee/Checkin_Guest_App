@@ -3,7 +3,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist",//"./dist/out-tsc",
+    "rootDir": "./src",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -16,8 +17,9 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
+    "target": "es6",//"ES2022",
+    "module": "commonjs",//"ES2022",
+    "types": ["node"],
     "useDefineForClassFields": false,
     "lib": [
       "ES2022",
@@ -29,5 +31,7 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

@@ -1,0 +1,8 @@
+
+<div style="background-color: #001e3d;">
+  <h2 mat-dialog-title style="color: #8397ac;" >{{data.title}}</h2>
+  <mat-dialog-content  style="color: white;">{{data.message}}</mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary"  [mat-dialog-close]="true" (click)="ok()">OK</button>
+  </mat-dialog-actions>
+</div>

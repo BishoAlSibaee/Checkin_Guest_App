@@ -1,0 +1,13 @@
+
+<div style="background-color: #001e3d; text-align: center;">
+    <h2 mat-dialog-title style="color: #8397ac;" >Message</h2>
+    <div style="background-color: white; border: solid gray 2px; width:80%; display: inline-block;">
+        <mat-dialog-content  style="color:#001e3d;">
+            {{Message}}
+        </mat-dialog-content>
+    </div>
+    <mat-dialog-actions>
+      <button mat-raised-button color="primary"  [mat-dialog-close]="true" style="width: 100%;" (click)="ok()">OK</button>
+    </mat-dialog-actions>
+</div>
+  

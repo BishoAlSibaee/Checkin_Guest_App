@@ -1,0 +1,18 @@
+<div style="background-color: #001e3d; text-align: center;">
+    <h2 mat-dialog-title style="color: white;">{{Item.name}}</h2>
+    <mat-dialog-content class="container2">
+        <label style="color: #8397ac; font-size: small; font-weight: bold;">{{Item.desc}}</label><br><br>
+        <label style="color: #8397ac; font-size: large; font-weight: bold; margin-right: 10px;">Price</label><label style="color: white; font-size: large; font-weight: bold;">{{Item.price}}</label><br><br>
+        <label style="color: #8397ac; font-size: x-large; font-weight: bold;" [ngStyle]="{'color':quantityColor}">Quantity</label><br><br>
+        <input style="font-size: x-large;" type="button" value="-" (click)="downClick()">
+        <input style="font-size: x-large; text-align: center;"  type="number" min="1" max="100" [(ngModel)]="Quantity" [ngModelOptions]="{standalone: true}">
+        <input style="font-size: x-large;" type="button" value="+" (click)="upClick()"><br><br>
+        <label style="color: #8397ac; font-size: x-large; font-weight: bold;">Total Price</label><br><br>
+        <label style="color: white; font-size: x-large; font-weight: bold;">{{calculateTotal()}}</label>
+        <br>
+    </mat-dialog-content>
+    <mat-dialog-actions style="display: flex;">
+    <button style="margin-left:20px; margin-right: 10px; flex: 1; background-color: #001e3d; color: #8397ac; border:1px solid #8397ac; font-size: larger; font-weight: bolder;" (click)="closeDialog()">Cancel</button>
+    <button style="margin-left:20px; margin-right: 10px; flex: 1; background-color: #8397ac; color: #001e3d; border:1px solid silver; font-size: larger; font-weight: bolder;" (click)="addItem()">Add</button>
+    </mat-dialog-actions>
+</div>

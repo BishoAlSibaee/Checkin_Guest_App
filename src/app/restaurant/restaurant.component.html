@@ -1,0 +1,43 @@
+<nav class="toolbar">
+    <img style="float: left; margin: 0; position: relative; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); margin-left: 20px;" width="100px" alt="Logo" src="./assets/images/page_logo.png" />
+    <span style="float: left; margin: 0; position: relative; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);">Welcome To&nbsp;{{ProjectName}}</span>
+</nav>
+<div style="height: 100%; width: 100%; justify-content: center; align-items: center; display: block; margin-top: 15%;">
+    <div style="width: 100%; text-align: center; display: block;">
+        <h1 style="width: 100%; margin: auto;" >Welcome {{GuestName}}</h1>
+        <h5 style="width: 100%; margin: auto;">Reservation Number {{ReservationNumber}}</h5>
+        <h1 style="width: 100%; margin: auto;">{{Restaurant.Name}}</h1>
+        <div style="width: 50%; margin: auto; display: flex;">
+            <div style="flex: 1;">
+                <img src="./assets/images/back_button.png" style="width:60px;height: 60px; " (click)="goBack()">
+            </div>
+            <div style="display: flex; justify-content:center; align-items:center;">
+                <app-loading-dialog  [ngStyle]="{'opacity':loading}"></app-loading-dialog>
+            </div>
+            <div style="flex: 1; position: relative; ">
+                <div style="display: inline-block; margin-top: -25px; position: relative; " (click)="goToCart()">
+                    <div style="width: 40px; height: 40px; background-color: red; border-radius: 50%; position: absolute; top: -25px; left: 10px;">
+                        <p style="color: white; font-size: larger; font-weight: bolder; margin-top: 10px; ">{{ItemsCount}}</p>
+                    </div>
+                    <img src="./assets/images/cart.png" style="width:60px; height: 50px; display: inline-block; position: absolute; top: 0; left: 0;">
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <div style="width: 100%; display: block; text-align: center;" *ngIf="menuesVisible">
+        <div style="width: 100%; height: 100%; display: flex; justify-content: center;" *ngFor="let men of Menues" >
+            <div style="width:100px;" (click)="goToMenuItems(men)">
+                <img src="{{men.photo}}" style="width: 50px; height: 50px; border-radius: 50%;">
+                <p>{{men.name}}</p>
+            </div>
+        </div>
+    </div>
+    <div style="width: 100%; display: block; text-align: center;" *ngIf="itemsVisible">
+        <div style="width: 100%; height: 100%; display: flex; justify-content: center;" *ngFor="let item of Items" >
+            <div style="width:100px;" (click)="itemClicked(item)">
+                <img src="{{item.photo}}" style="width: 70px; height: 70px; border-radius: 50%;">
+                <p>{{item.name}}</p>
+            </div>
+        </div>
+    </div>
+</div>

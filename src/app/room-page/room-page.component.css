@@ -1,0 +1,60 @@
+.spacer {
+    flex: 1;
+  }
+.toolbar {
+    width: 100%;
+    height: 50px;
+    display: block;
+    position:absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    background-color: #001e3d;
+    color: white;
+    font-weight: 600;
+    flex:1;
+    padding: 0;
+    margin: 0;
+  }
+
+  .serviceIcon {
+    width:55px;
+    height:70px;
+    margin-right: 5px;
+  }
+
+  .serviceIconCleanup{
+    width:55px;
+    height:65px;
+    margin-right: 5px;
+  }
+  .serviceIconLaundry{
+    width:50px;
+    height:65px;
+    margin-right: 5px;
+  }
+  .serviceIconDND{
+    width:65px;
+    height:65px;
+    margin-right: 5px;
+  }
+  .serviceIconCheckout{
+    width:55px;
+    height:65px;
+    margin-right: 5px;
+  }
+  .serviceIconRoomService{
+    width:55px;
+    height:65px;
+    margin-right: 5px;
+  }
+  .serviceIconSOS{
+    width:65px;
+    height:65px;
+    margin-right: 5px;
+  }
+  .serviceIconRestaurant{
+    width:65px;
+    height:65px;
+    margin-right: 5px;
+  }

@@ -1,0 +1,195 @@
+<div style="width: 100%; justify-content: center; align-items: center;">
+
+    <div style="display: flex; justify-content:center; align-items:center; margin-top: 10px;">
+        <img src="./assets/images/cleanup_on.png" class="serviceIconCleanup" *ngIf="cleanupVisible">
+        <img src="./assets/images/laundry_on.png" class="serviceIconLaundry" *ngIf="laundryVisible">
+        <img src="./assets/images/dnd_on.png" class="serviceIconDND" *ngIf="dndVisible">
+        <img src="./assets/images/checkout_on.png" class="serviceIconCheckout" *ngIf="checkoutVisible">
+        <img src="./assets/images/roomservice_on.png" class="serviceIconRoomService" *ngIf="roomServiceVisible">
+        <img src="./assets/images/sos_on.png" class="serviceIconSOS" *ngIf="sosVisible">
+        <img src="./assets/images/restaurant_on.png" class="serviceIconRestaurant" *ngIf="restaurantVisibleIcon">
+        <div style="height:65px; width: 2px;"></div>
+    </div>
+
+    <mat-tab-group [color]="tabColor" [backgroundColor]="xxx" style="width: 100%; height: 100%; display: block; margin-top: 10px; " (selectedTabChange)="tabSelectChanged($event)">
+        <mat-tab style="width: 100%; height: 100%; display: block;" *ngIf="LockVisible">
+            <ng-template mat-tab-label>
+                <mat-icon style="margin-right: 10px; color: #001e3d;">door_front</mat-icon>
+                <span style="color: #001e3d;">{{getDoor()}}</span>
+            </ng-template>
+        
+          <div class="sectionsBody" *ngIf="LockVisible">
+            <div id="lock_bg" class="lockbg" *ngIf="lockBgHidden">
+                <div class="lockImageBack">
+                    <img class="lockImage" id="lock_image" src='{{ "assets/images/" + LockImage + ".png" }}' (click)="openDoor()">
+                </div>
+            </div>
+        </div>
+        <P id="lock_text" *ngIf="LockVisible" style="display: block; width: 100%; color:#001e3d; font-size: larger; font-weight: bolder;">
+            Door
+        </P>
+        </mat-tab>
+        <mat-tab style="width: 100%; height: 100%; display: block;">
+            <ng-template mat-tab-label>
+                <mat-icon style="margin-right: 10px; color: #001e3d;">support_agent</mat-icon>
+                <span style="color: #001e3d;">{{getServices()}}</span>
+            </ng-template>
+            <div class="sectionsBody">
+                <div class="serviceSwitch" >
+                    <div style="width: 100%; height: 50%; display: block; display: flex; justify-content: space-between;">
+                        <!-- <input [id]="'ServiceB1'+ROOM.RoomNumber" class="ServiceCleanup" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="{{getCleanup()}}" (click)="cleanupClick(CleanupRef,CleanupValue)"> -->
+                        <button [id]="'ServiceB1'+ROOM.RoomNumber" class="ServiceCleanup" [ngStyle]="{'background-image':ButtonStatus}" (click)="cleanupClick(CleanupRef,CleanupValue)"><mat-icon style="width: 100%;">cleaning_services</mat-icon><span>{{getCleanup()}}</span></button>
+                        <div style="width: 20px; height: 70px;"></div>
+                        <!-- <input [id]="'ServiceB2'+ROOM.RoomNumber" class="ServiceLaundry" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="{{getLaundry()}}" (click)="laundryClick(LaundryRef,LaundryValue)"> -->
+                        <button [id]="'ServiceB2'+ROOM.RoomNumber" class="ServiceLaundry" [ngStyle]="{'background-image':ButtonStatus}" (click)="laundryClick(LaundryRef,LaundryValue)"><mat-icon style="width: 100%;">local_laundry_service</mat-icon><span>{{getLaundry()}}</span></button>
+                        <div style="width: 20px; height: 70px;"></div>
+                        <!-- <input [id]="'ServiceB3'+ROOM.RoomNumber" class="ServiceDND" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="{{getDnd()}}" (click)="dndClick(DNDRef,DNDValue)"> -->
+                        <button [id]="'ServiceB3'+ROOM.RoomNumber" class="ServiceDND" [ngStyle]="{'background-image':ButtonStatus}" (click)="dndClick(DNDRef,DNDValue)"><mat-icon style="width: 100%;">block</mat-icon><span>{{getDnd()}}</span></button>
+                    </div>
+                    <div style="width: 100%; height: 50%; display: block; display: flex; justify-content: space-between;">
+                        <!-- <input [id]="'ServiceB4'+ROOM.RoomNumber" class="ServiceCheckout" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="{{getCheckout()}}" (click)="checkoutClick(CheckoutRef,CheckoutValue)"> -->
+                        <button [id]="'ServiceB4'+ROOM.RoomNumber" class="ServiceCheckout" [ngStyle]="{'background-image':ButtonStatus}" (click)="checkoutClick(CheckoutRef,CheckoutValue)"><mat-icon style="width: 100%;">directions_walk</mat-icon><span>{{getCheckout()}}</span></button>
+                        <div style="width: 20px; height: 70px;"></div>
+                        <!-- <input [id]="'ServiceB5'+ROOM.RoomNumber" class="ServiceRoomService" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="{{getRoomService()}}" (click)="roomServiceClick(RoomServiceRef,RoomServiceValue)"> -->
+                        <button [id]="'ServiceB5'+ROOM.RoomNumber" class="ServiceRoomService" [ngStyle]="{'background-image':ButtonStatus}" (click)="roomServiceClick(RoomServiceRef,RoomServiceValue)"><mat-icon style="width: 100%;">room_preferences</mat-icon><span>{{getRoomService()}}</span></button>
+                        <div style="width: 20px; height: 70px;"></div>
+                        <!-- <input [id]="'ServiceB6'+ROOM.RoomNumber" class="ServiceSOS" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="{{getSOS()}}" (click)="sosClick(SOSRef,SOSValue)"> -->
+                        <button [id]="'ServiceB6'+ROOM.RoomNumber" class="ServiceSOS" [ngStyle]="{'background-image':ButtonStatus}" (click)="sosClick(SOSRef,SOSValue)"><mat-icon style="width: 100%;">sos</mat-icon><span>{{getSOS()}}</span></button>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab style="width: 100%; height: 100%; display: block;" *ngIf="lightsVisible" id="lightsTab">
+            <ng-template mat-tab-label>
+                <mat-icon style="margin-right: 10px; color: #001e3d;">wb_incandescent</mat-icon>
+                <span style="color: #001e3d;">{{getLights()}}</span>
+            </ng-template>
+            <div style="width: 100%; justify-content: center; align-items: center; display: block; margin-top: 20px; text-align: center;">
+                <div style="width: 100%; display: flex; justify-content: center;">
+                    <div class="Switch" *ngIf="Switch1.visible">
+                        <input id="s1b1" class="Button1" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="{{Switch1.Button1.name}}" *ngIf="Switch1.Button1.visible"  (click)="Switch1.Button1.clicked(S1B1)">
+                        <input id="s1b2" class="Button2" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="{{Switch1.Button2.name}}" *ngIf="Switch1.Button2.visible"  (click)="Switch1.Button2.clicked(S1B2)">
+                        <input id="s1b3" class="Button3" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="{{Switch1.Button3.name}}" *ngIf="Switch1.Button3.visible"  (click)="Switch1.Button3.clicked(S1B3)">
+                        <input id="s1b4" class="Button4" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="{{Switch1.Button4.name}}" *ngIf="Switch1.Button4.visible"  (click)="Switch1.Button4.clicked(S1B4)">
+                    </div>
+                </div>
+                <div style="width: 100%; display: flex; justify-content: center;">
+                    <div class="Switch" *ngIf="Switch2.visible">
+                        <input id="s2b1" class="Button1" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="{{Switch2.Button1.name}}" *ngIf="Switch2.Button1.visible" (click)="Switch2.Button1.clicked(S2B1)">
+                        <input id="s2b2" class="Button2" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="{{Switch2.Button2.name}}" *ngIf="Switch2.Button2.visible" (click)="Switch2.Button2.clicked(S2B2)">
+                        <input id="s2b3" class="Button3" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="{{Switch2.Button3.name}}" *ngIf="Switch2.Button3.visible" (click)="Switch2.Button3.clicked(S2B3)">
+                        <input id="s2b4" class="Button4" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="{{Switch2.Button4.name}}" *ngIf="Switch2.Button4.visible" (click)="Switch2.Button4.clicked(S2B4)">
+                    </div>
+                </div>
+                <div style="width: 100%; display: flex; justify-content: center;">
+                    <div class="Switch" *ngIf="Switch3.visible">
+                        <input id="s3b1" class="Button1" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch3.Button1.name}}" *ngIf="Switch3.Button1.visible" (click)="Switch3.Button1.clicked(S3B1)">
+                        <input id="s3b2" class="Button2" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch3.Button2.name}}" *ngIf="Switch3.Button2.visible" (click)="Switch3.Button2.clicked(S3B2)">
+                        <input id="s3b3" class="Button3" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch3.Button3.name}}" *ngIf="Switch3.Button3.visible" (click)="Switch3.Button3.clicked(S3B3)">
+                        <input id="s3b4" class="Button4" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch3.Button4.name}}" *ngIf="Switch3.Button4.visible" (click)="Switch3.Button4.clicked(S3B4)">
+                    </div>
+                </div>
+                <div style="width: 100%; display: flex; justify-content: center;">
+                    <div class="Switch" *ngIf="Switch4.visible">
+                        <input id="s4b1" class="Button1" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch4.Button1.name}}" *ngIf="Switch4.Button1.visible" (click)="Switch4.Button1.clicked(S4B1)">
+                        <input id="s4b2" class="Button2" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch4.Button2.name}}" *ngIf="Switch4.Button2.visible" (click)="Switch4.Button2.clicked(S4B2)">
+                        <input id="s4b3" class="Button3" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch4.Button3.name}}" *ngIf="Switch4.Button3.visible" (click)="Switch4.Button3.clicked(S4B3)">
+                        <input id="s4b4" class="Button4" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch4.Button4.name}}" *ngIf="Switch4.Button4.visible" (click)="Switch4.Button4.clicked(S4B4)">
+                    </div>
+                </div>
+                <div style="width: 100%; display: flex; justify-content: center;">
+                    <div class="Switch" *ngIf="Switch5.visible">
+                        <input id="s5b1" class="Button1" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch5.Button1.name}}" *ngIf="Switch5.Button1.visible" (click)="Switch5.Button1.clicked(S5B1)">
+                        <input id="s5b2" class="Button2" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch5.Button2.name}}" *ngIf="Switch5.Button2.visible" (click)="Switch5.Button2.clicked(S5B2)">
+                        <input id="s5b3" class="Button3" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch5.Button3.name}}" *ngIf="Switch5.Button3.visible" (click)="Switch5.Button3.clicked(S5B3)">
+                        <input id="s5b4" class="Button4" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch5.Button4.name}}" *ngIf="Switch5.Button4.visible" (click)="Switch5.Button4.clicked(S5B4)">
+                    </div>
+                </div>
+                <div style="width: 100%; display: flex; justify-content: center;">
+                    <div class="Switch" *ngIf="Switch6.visible">
+                        <input id="s6b1" class="Button1" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch6.Button1.name}}" *ngIf="Switch6.Button1.visible" (click)="Switch6.Button1.clicked(S6B1)">
+                        <input id="s6b2" class="Button2" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch6.Button2.name}}" *ngIf="Switch6.Button2.visible" (click)="Switch6.Button2.clicked(S6B2)">
+                        <input id="s6b3" class="Button3" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch6.Button3.name}}" *ngIf="Switch6.Button3.visible" (click)="Switch6.Button3.clicked(S6B3)">
+                        <input id="s6b4" class="Button4" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch6.Button4.name}}" *ngIf="Switch6.Button4.visible" (click)="Switch6.Button4.clicked(S6B4)">
+                    </div>
+                </div>
+                <div style="width: 100%; display: flex; justify-content: center;">
+                    <div class="Switch" *ngIf="Switch7.visible">
+                        <input id="s7b1" class="Button1" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch7.Button1.name}}" *ngIf="Switch7.Button1.visible" (click)="Switch7.Button1.clicked(S7B1)">
+                        <input id="s7b2" class="Button2" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch7.Button2.name}}" *ngIf="Switch7.Button2.visible" (click)="Switch7.Button2.clicked(S7B2)">
+                        <input id="s7b3" class="Button3" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch7.Button3.name}}" *ngIf="Switch7.Button3.visible" (click)="Switch7.Button3.clicked(S7B3)">
+                        <input id="s7b4" class="Button4" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch7.Button4.name}}" *ngIf="Switch7.Button4.visible" (click)="Switch7.Button4.clicked(S7B4)">
+                    </div>
+                </div>
+                <div style="width: 100%; display: flex; justify-content: center;">
+                    <div class="Switch" *ngIf="Switch8.visible">
+                        <input id="s8b1" class="Button1" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch8.Button1.name}}" *ngIf="Switch8.Button1.visible" (click)="Switch8.Button1.clicked(S8B1)">
+                        <input id="s8b2" class="Button2" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch8.Button2.name}}" *ngIf="Switch8.Button2.visible" (click)="Switch8.Button2.clicked(S8B2)">
+                        <input id="s8b3" class="Button3" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch8.Button3.name}}" *ngIf="Switch8.Button3.visible" (click)="Switch8.Button3.clicked(S8B3)">
+                        <input id="s8b4" class="Button4" [ngStyle]="{'background-image':ButtonStatus}" type="button" value="{{Switch8.Button4.name}}" *ngIf="Switch8.Button4.visible" (click)="Switch8.Button4.clicked(S8B4)">
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab style="width: 100%; height: 100%; display: block;" *ngIf="curtainVisible" id="curtainTab">
+            <ng-template mat-tab-label>
+                <mat-icon style="margin-right: 10px; color: #001e3d;">curtains</mat-icon>
+                <span style="color: #001e3d;">{{getCurtain()}}</span>
+            </ng-template>
+            
+            <div style="width: 100%; justify-content: center; align-items: center; display: block; margin-top: 20px; text-align: center;">
+                <div style="width: 100%; display: flex; justify-content: center;">
+                    <div class="Switch">
+                        <!-- <input id="curtainOpen" class="Button2" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="Open" (click)="openCurtain()"> -->
+                        <button id="curtainOpen" class="Button2" [ngStyle]="{'background-image':ButtonStatus}" (click)="openCurtain()"><mat-icon style="width: 100%;">settings_ethernet</mat-icon><span>Open</span></button>
+                        <!-- <input id="curtainClose" class="Button3" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="Close" (click)="closeCurtain()"> -->
+                        <button id="curtainClose" class="Button3" [ngStyle]="{'background-image':ButtonStatus}" (click)="closeCurtain()"><mat-icon style="width: 100%;">compare_arrows</mat-icon><span>Close</span></button>
+                        <!-- <input id="curtainStop" class="Button1" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="Stop" (click)="stopCurtain()"> -->
+                        <button id="curtainStop" class="Button1" [ngStyle]="{'background-image':ButtonStatus}" (click)="stopCurtain()"><mat-icon style="width: 100%;">pause</mat-icon><span>Stop</span></button>
+                        <!-- <input id="curtainContinue" class="Button4" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="Continue" (click)="continueCurtain()"> -->
+                        <button id="curtainContinue" class="Button4" [ngStyle]="{'background-image':ButtonStatus}" (click)="continueCurtain()"><mat-icon style="width: 100%;">play_arrow</mat-icon><span>Continue</span></button>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab style="width: 100%; height: 100%; display: block;" *ngIf="acVisible">
+            <ng-template mat-tab-label>
+                <mat-icon style="margin-right: 10px; color: #001e3d;">ac_unit</mat-icon>
+                <span style="color: #001e3d;">{{getAc()}}</span>
+            </ng-template>
+            
+            <div class="sectionsBody" *ngIf="acVisible" >
+                <div class="AC">
+                    <img id="acPower" class="acPowerBtn" src={{PowerACStatus}} type="button" value="Power" *ngIf="ACPowerVisible" (click)="acPowerClick()">
+                    <p style="position: absolute; top:70px; left:10px; color: white; font-size:xx-small;" *ngIf="ACOffOrOn">Current Temp</p>
+                    <p style="position: absolute; top:80px; left:30px; color: white; font-size:large; font-weight: bolder;" *ngIf="ACOffOrOn">{{ACCurrentTempValue}}</p>
+                    <div class="tempDiv" *ngIf="ACOffOrOn">
+                        <input class="acDown" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="-" *ngIf="ACPowerVisible" (click)="acDown()">
+                        <p style="position: absolute; top:20px; left:55px; color: white; font-size:xx-small;">Set Temp</p>
+                        <h1 class="tempText">{{SetTemp}}</h1>
+                        <input class="acUp" [ngStyle]="{'background-image':ButtonStatus}"  type="button" value="+" *ngIf="ACPowerVisible" (click)="acUp()">
+                    </div>
+                        <img *ngIf="ACOffOrOn"  id="fanImage" class="acFanBtn" src={{FanACStatus}} (click)="acFanClick()">
+                        <p *ngIf="ACOffOrOn" class="acFanBtnText" (click)="acFanClick()">{{ACFanValue}}</p>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab style="width: 100%; height: 100%; display: block;" *ngIf="restaurantVisible">
+            <ng-template mat-tab-label>
+                <mat-icon style="margin-right: 10px; color: #001e3d;">restaurant</mat-icon>
+                <span style="color: #001e3d;">{{getRestaurants()}}</span>
+            </ng-template>
+            
+            <div class="sectionsBody" *ngFor="let rest of Restaurants">
+                <div style="width: 300px; height: 200px; text-align: center; position: relative; background-color: #001e3d; align-items: center; border-radius: 10px; padding: 5px; box-sizing: border-box;" (click)="goToRestaurant(rest)">
+                    <img src="{{rest.photo}}" style="width: 100%; display: block; height: 150px;">
+                    <p style="width: 100%; display: block; font-size: larger; font-weight: bolder; color:white; padding-top: 10px;">{{rest.Name}}</p>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
+    <div style="float: right; position: relative; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);">
+        <button id="xxx" style="background-color: transparent; color: white; visibility: hidden;" (click)="setLanguage()"></button>
+    </div>
+</div>

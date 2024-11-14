@@ -1,0 +1,35 @@
+<body ng-focus="focusFunction">
+<nav class="toolbar">
+    <img style="float: left; margin: 0; position: relative; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); margin-left: 20px;" width="100px" alt="Logo" src="{{LOGO}}" />
+    <span style="float: left; margin: 0; position: relative; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);">{{welcomeText}}&nbsp; {{HotelName}}</span>
+    <div style="float: right; position: relative; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);">
+        <button style="background-color: transparent; color: white; outline: none; border: none; font-size: x-small;" (click)="setLanguageArabic()">عربي</button>
+        <button style="background-color: transparent; color: white; outline: none; border: none; font-size: x-small;" (click)="setLanguageEnglish()">English</button>
+    </div>
+</nav>
+
+<div style="height: 100%; width: 100%; justify-content: center; align-items: center; display: block; margin-top: 70px;" >
+    <div style="width: 100%; text-align: center; display: block; margin-top: 5%; ">
+        <h1 style="width: 100%; margin: auto;color: #001e3d;" >{{welcome}} {{GuestName}}</h1>
+        <h5 style="width: 100%; margin: auto;color: #001e3d;">{{reservationNumber}} {{ReservationNumber}}</h5>
+        <h5 style="width: 100%; margin: auto;color: #001e3d;">{{checkin}} : {{Checkin}}</h5> 
+        <h5 style="width: 100%; margin: auto;color: #001e3d;">{{checkout}} : {{Checkout}}</h5>
+        <div style="display: flex; justify-content:center; align-items:center;">
+            <app-loading-dialog  [ngStyle]="{'opacity':loading}"></app-loading-dialog>
+        </div>
+    </div><br>
+    <div style="width: 100%; display: block; text-align: center;">
+        <mat-tab-group (selectedTabChange)="roomTabClick($event)" [color]="tabColor" [backgroundColor]="xxx" style="width: 100%; height: 100%; display: block; ">
+            <mat-tab style="width: 100%; height: 100%; display: block;" *ngFor="let room of ROOMs">
+              <ng-template mat-tab-label style="color: #001e3d;">{{_room}} {{room.RoomNumber}}</ng-template>
+              <app-room #x [data]="room"></app-room>
+            </mat-tab>
+        </mat-tab-group>
+    </div><br>
+
+    <!-- <div style="width: 100%; text-align: center;">
+        <div style="width: 100%; text-align: center; font-weight: bold;">QR Code</div> 
+        <img src='{{QRCodeUrl}}'>
+    </div> -->
+</div>
+</body>

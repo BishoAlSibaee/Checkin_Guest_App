@@ -1,0 +1,410 @@
+.lockbg_animated {
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.lockbg {
+    width:110px; 
+    height:110px; 
+    background-color: green; 
+    background-image: linear-gradient(0deg, #001e3d,#8397ac); 
+    border-radius: 50%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.lockImage{
+    width:65px; 
+    height: 80px; 
+    padding: 7px;
+    box-sizing: border-box;
+}
+
+.lockImageBack{
+  width: 90px;
+  height: 90px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.lockImage_animated {
+    animation-name: spinRev;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.loader {
+    border: 2px solid #c2c1c1dc; /* Light grey */
+    border-top: 2px solid #00a2ec; /* Blue */
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    animation: spin 2s linear infinite;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+
+  .sectionsBody {
+    width: 100%; 
+    justify-content: center; 
+    align-items: center; 
+    display: flex; 
+    position: relative; 
+    margin-top: 20px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes spinRev {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+
+  .Switch {
+    border: 2px solid silver;
+    border-radius: 10px;
+    position: relative;
+    width: 50%;
+    height: 200px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 10px;
+    background-image: linear-gradient(30deg, #8397ac,#001e3d,#8397ac); 
+  }
+
+  .serviceSwitch {
+    border: 2px solid silver;
+    border-radius: 10px;
+    position: relative;
+    width: 80%;
+    height: 200px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 10px;
+    background-image: linear-gradient(30deg, #8397ac,#001e3d,#8397ac); 
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .AC {
+    border: 2px solid silver;
+    border-radius: 10px;
+    position: relative;
+    width: 300px;
+    height: 150px;
+    margin-left: 3px;
+    margin-right: 3px;
+    background-image: linear-gradient(30deg, #8397ac,#001e3d,#8397ac); 
+  }
+
+  .Button2 {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    position: absolute;
+    width:40%;
+    height:70px;
+    top:5%;
+    left:5%;
+    color: white;
+    text-align: center;
+    font-size:medium;
+    font-size: 2vw;
+  }
+  .Button3 {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width:40%;
+    height:70px;
+    position: absolute;
+    top:5%;
+    left:55%;
+    color: white;
+    text-align: center;
+    font-size:medium;
+    font-size: 2vw;
+  }
+  .Button1 {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width:40%;
+    height:70px;
+    position: absolute;
+    top:55%;
+    left:5%;
+    color: white;
+    text-align: center;
+    font-size:medium;
+    font-size: 2vw;
+  }
+  .Button4 {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width:40%;
+    height:70px;
+    position: absolute;
+    top:55%;
+    left:55%;
+    color: white;
+    text-align: center;
+    font-size:medium;
+    font-size: 2vw;
+  }
+  /* @media screen and (min-width: 1200px) {
+    .Button1 {
+       font-size: 5px;
+    }
+    .Button2 {
+      font-size: 5px;
+   }
+   .Button3 {
+    font-size: 5px;
+  }
+  .Button4 {
+      font-size: 5px;
+    }
+  } */
+  @media screen and (min-width: 2000px) {
+    .Button1 {
+       font-size: 6px;
+    }
+    .Button2 {
+      font-size: 6px;
+    }
+    .Button3 {
+      font-size: 6px;
+    }
+    .Button4 {
+      font-size: 6px;
+    }
+    .ServiceCleanup {
+      font-size: 6px;
+    }
+    .ServiceLaundry {
+      font-size: 6px;
+    }
+    .ServiceDND {
+      font-size: 6px;
+    }
+    .ServiceCheckout {
+      font-size: 6px;
+    }
+    .ServiceRoomService {
+      font-size: 6px;
+    }
+    .ServiceSOS {
+      font-size: 6px;
+    }
+  }
+  .ServiceCleanup{
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width:80%;
+    height:70px;
+    color: white;
+    font-size: small;
+    font-size: 1.8vw;
+    font-weight: bolder;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin: auto;
+  }
+  .ServiceLaundry{
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width:80%;
+    height:70px;
+    color: white;
+    font-size: small;
+    font-size: 1.8vw;
+    font-weight: bolder;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin: auto;
+  }
+  .ServiceDND{
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width:80%;
+    height:70px;
+    color: white;
+    font-size: small;
+    font-size: 1.8vw;
+    font-weight: bolder;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin: auto;
+  }
+  .ServiceCheckout{
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width:80%;
+    height:70px;
+    color: white;
+    font-size: small;
+    font-size: 1.8vw;
+    font-weight: bolder;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin: auto;
+  }
+  .ServiceRoomService{
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width:80%;
+    height:70px;
+    color: white;
+    font-size: small;
+    font-size: 1.8vw;
+    font-weight: bolder;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin: auto;
+  }
+  .ServiceSOS{
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width:80%;
+    height:70px;
+    color: white;
+    font-size: small;
+    font-size: 1.8vw;
+    font-weight: bolder;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin: auto;
+  }
+  .acPowerBtn{
+    border-radius: 50%;
+    position: absolute;
+    width:40px;
+    height:40px;
+    top:20px;
+    left:20px;
+    color: white;
+    font-size: smaller;
+    font-weight: bolder;
+    background-size: 40px 40px;
+  }
+  .acFanBtn{
+    position: absolute;
+    width:35px;
+    height:30px;
+    top:50px;
+    left:240px;
+    font-size: smaller;
+    font-weight: bolder;
+    border: solid 1px white;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .acFanBtnText{
+    position: absolute;
+    top:80px;
+    left:250px;
+    color: white;
+    font-size: small;
+    font-weight: bolder;
+  }
+  .acUp{
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    position: absolute;
+    width:40px;
+    height:40px;
+    top:35px;
+    left:10px;
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+  }
+  .acDown{
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    position: absolute;
+    width:40px;
+    height:40px;
+    top:35px;
+    left:95px;
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+  }
+
+  .acFan{
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    position: absolute;
+    width:40px;
+    height:40px;
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+  }
+  .tempText{
+    position: absolute;
+    top:37px;
+    left:60px;
+    color:white; 
+    font-weight: bolder;
+  }
+   .tempDiv{
+    border: 2px solid silver;
+    border-radius: 10px;
+    position: absolute;
+    top:20px;
+    left:70px;
+    width: 150px;
+    height: 100px;
+    margin-left: 3px;
+    margin-right: 3px;
+    background-color: #001e3d;
+   }
+   .serviceIcon {
+    width:55px;
+    height:70px;
+    margin-right: 5px;
+  }
+
+  .serviceIconCleanup{
+    width:55px;
+    height:65px;
+    margin-right: 5px;
+  }
+  .serviceIconLaundry{
+    width:50px;
+    height:65px;
+    margin-right: 5px;
+  }
+  .serviceIconDND{
+    width:65px;
+    height:65px;
+    margin-right: 5px;
+  }
+  .serviceIconCheckout{
+    width:55px;
+    height:65px;
+    margin-right: 5px;
+  }
+  .serviceIconRoomService{
+    width:55px;
+    height:65px;
+    margin-right: 5px;
+  }
+  .serviceIconSOS{
+    width:65px;
+    height:65px;
+    margin-right: 5px;
+  }
+  .serviceIconRestaurant{
+    width:65px;
+    height:65px;
+    margin-right: 5px;
+  }

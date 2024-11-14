@@ -1,0 +1,18 @@
+<div style="background-color: #001e3d; text-align: center;">
+    <h2 mat-dialog-title style="color: white;">What Would you like to order</h2>
+    <mat-dialog-content class="container2">
+        <mat-checkbox style="width: 100%;" [(ngModel)]="Towels">Towelt</mat-checkbox>
+        <mat-checkbox style="width: 100%;" [(ngModel)]="Slippers">Slippers</mat-checkbox>
+        <mat-checkbox style="width: 100%;" [(ngModel)]="BathroomSet">Bathset</mat-checkbox>
+        <mat-checkbox style="width: 100%;" [(ngModel)]="Other">Other</mat-checkbox>
+        <mat-form-field style="width: 100%;" [color]="textColor" *ngIf="Other">
+            <mat-label>Order</mat-label>
+            <input matInput placeholder="write your order" [(ngModel)]="otherText" >
+        </mat-form-field>
+        <p [style]="{'color':OrderTextColor}">{{OrderText}}</p>
+    </mat-dialog-content>
+    <mat-dialog-actions style="display: flex;">
+        <button style="margin-left:20px; margin-right: 10px; flex: 1; background-color: #001e3d; color: #8397ac; border:1px solid #8397ac; font-size: larger;" (click)="cancel()">Cancel</button>
+        <button style="margin-left:20px; margin-right: 10px; flex: 1; background-color: #8397ac; color: #001e3d; border:1px solid silver; font-size: larger;" (click)="send()">Send</button>
+    </mat-dialog-actions>
+</div>
